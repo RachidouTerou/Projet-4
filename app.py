@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 # Charger le modèle
-model = load_model('drive/MyDrive/model/best_model.keras')
+model = load_model('best_model.keras')
 
 # Fonction pour prétraiter l'image
 def preprocess_image(img_path):
