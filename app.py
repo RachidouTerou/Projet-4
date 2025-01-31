@@ -28,6 +28,11 @@ def predict_image(img_path):
     return "Pneumonie" if prediction[0][0] > 0.5 else "Normal"
 
 # Interface Streamlit
+st.set_page_config(
+    page_title="Diagnostic Médicale Automatisé",  
+    page_icon=":stethoscope:",          
+    layout="wide"                  
+)
 st.title("🩺 Classification de Radiographie Thoracique")
 st.write("Cette application utilise un modèle VGG16 pour classifier les radiographies thoraciques en **Normal** ou **Pneumonie**.")
 
