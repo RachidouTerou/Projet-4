@@ -5,7 +5,7 @@ import numpy as np
 import gdown
 from PIL import Image
 
-@st.cache_resource  
+@st.cache_resource   
 def load_my_model():
     file_id = "1-13ZdUcbvSR03heHeCq27fiXkoAsWQfW"
     url = f"https://drive.google.com/uc?id={file_id}"
