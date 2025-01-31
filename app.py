@@ -38,15 +38,15 @@ st.success("Modèle chargé avec succès !")
 uploaded_file = st.file_uploader("📤 Téléchargez une image de radiographie thoracique", type=["jpg", "jpeg", "png"])
 
 # Ajout de la barre latérale
-# with st.sidebar:
-#     st.header("Liste des Membres")
+with st.sidebar:
+    st.header("Liste des Membres")
     
-#     # Liste des membres
-#     membres = ["MBADAI TOKLE AMINATOU ", "KOULBO MARIONIC HERVE", "RACHIDOU YOUSSOUFA TEROU", "YOBARA DANGMO AXEL JUNIOR"]
+    # Liste des membres
+    membres = ["MBADAI TOKLE AMINATOU ", "KOULBO MARIONIC HERVE", "RACHIDOU YOUSSOUFA TEROU", "YOBARA DANGMO AXEL JUNIOR"]
     
-#     # Affichage des membres
-#     for membre in membres:
-#         st.write(membre)
+    # Affichage des membres
+    for membre in membres:
+        st.write(membre)
 
 if uploaded_file is not None:
     # Charger l'image
