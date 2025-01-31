@@ -6,7 +6,7 @@ import gdown
 from PIL import Image
 
 @st.cache_resource  
-def load_model():
+def load_my_model():
     file_id = "1-13ZdUcbvSR03heHeCq27fiXkoAsWQfW"
     url = f"https://drive.google.com/uc?id={file_id}"
     output = "best_model.keras"
@@ -32,7 +32,7 @@ st.title("🩺 Classification de Radiographie Thoracique")
 st.write("Cette application utilise un modèle VGG16 pour classifier les radiographies thoraciques en **Normal** ou **Pneumonie**.")
 
 # Charger le modèle
-model = load_model()
+model = load_my_model()
 st.success("Modèle chargé avec succès !")
 
 uploaded_file = st.file_uploader("📤 Téléchargez une image de radiographie thoracique", type=["jpg", "jpeg", "png"])
