@@ -37,6 +37,17 @@ st.success("Modèle chargé avec succès !")
 
 uploaded_file = st.file_uploader("📤 Téléchargez une image de radiographie thoracique", type=["jpg", "jpeg", "png"])
 
+# Ajout de la barre latérale
+with st.sidebar:
+    st.header("Liste des Membres")
+    
+    # Liste des membres
+    membres = ["Chatilla", "Koulbo", "Terou", "Yobara"]
+    
+    # Affichage des membres
+    for membre in membres:
+        st.write(membre)
+
 if uploaded_file is not None:
     # Charger l'image
     image_display = Image.open(uploaded_file)
