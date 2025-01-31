@@ -42,7 +42,7 @@ with st.sidebar:
     st.header("Liste des Membres")
     
     # Liste des membres
-    membres = ["Chatilla", "Koulbo", "Terou", "Yobara"]
+    membres = ["MBADAI TOKLE AMINATOU ", "KOULBO MARIONIC HERVE", "RACHIDOU YOUSSOUFA TEROU", "YOBARA DANGMO AXEL JUNIOR"]
     
     # Affichage des membres
     for membre in membres:
