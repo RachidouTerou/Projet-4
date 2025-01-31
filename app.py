@@ -2,10 +2,16 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
+import gdown
 from PIL import Image
 
-# Charger le modèle
-model = load_model('https://drive.google.com/file/d/1-13ZdUcbvSR03heHeCq27fiXkoAsWQfW/view?usp=sharing')
+@st.cache_resource  
+def load_model():
+    file_id = "1-13ZdUcbvSR03heHeCq27fiXkoAsWQfW"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    output = "best_model.keras"
+    gdown.download(url, output, quiet=False)
+    return load_model(output)
 
 # Fonction pour prétraiter l'image
 def preprocess_image(img_path):
@@ -24,6 +30,10 @@ def predict_image(img_path):
 # Interface Streamlit
 st.title("🩺 Classification de Radiographie Thoracique")
 st.write("Cette application utilise un modèle VGG16 pour classifier les radiographies thoraciques en **Normal** ou **Pneumonie**.")
+
+# Charger le modèle
+model = load_model()
+st.success("Modèle chargé avec succès !")
 
 uploaded_file = st.file_uploader("📤 Téléchargez une image de radiographie thoracique", type=["jpg", "jpeg", "png"])
 
