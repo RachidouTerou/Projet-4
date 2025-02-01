@@ -33,7 +33,7 @@ st.set_page_config(
     page_icon=":stethoscope:",          
     layout="wide"                  
 )
-st.title("🩺 Classification de Radiographie Thoracique")
+st.title("🩺 Détecteur de Pneumonie")
 st.write("Cette application utilise un modèle VGG16 (fine-tunné) pour classifier les radiographies thoraciques en **Normal** ou **Pneumonie**.")
 
 # Charger le modèle
