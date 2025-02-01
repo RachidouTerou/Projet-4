@@ -80,4 +80,4 @@ if uploaded_file is not None:
     
     with col2:
         st.markdown(f"<div style='display: flex; justify-content: center; align-items: center; height: 100%;'><h3 style='text-align: center; color: {color};'>{prediction}</h3></div>", unsafe_allow_html=True)
-        st.markdown(f"<div style='display: flex; justify-content: center; align-items: center; height: 100%;'><h3 style='text-align: center; color: {color};'> pourcentage de sureté: {conf:.2f}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='display: flex; justify-content: center; align-items: center; height: 100%;'><h4 style='text-align: center;'> pourcentage de sureté: {conf*100:.1f}</h4></div>", unsafe_allow_html=True)
