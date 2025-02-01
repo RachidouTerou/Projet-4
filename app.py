@@ -25,7 +25,7 @@ def preprocess_image(img_path):
 def predict_image(img_path):
     img_array = preprocess_image(img_path)
     prediction = model.predict(img_array)
-    return "Pneumonie" if prediction[0][0] > 0.5 else "Normal"
+    return "Pneumonie" if prediction[0][0] > 0.5 else "Normal", prediction[0][0]
 
 # Interface Streamlit
 st.set_page_config(
@@ -60,10 +60,17 @@ if uploaded_file is not None:
     # Sauvegarder temporairement pour la prédiction
     img_path = "temp_image.jpg"
     image_display.save(img_path)
-    prediction = predict_image(img_path)
+    prediction, conf = predict_image(img_path)
     
     # Définir la couleur en fonction du résultat
     color = "#28a745" if prediction == "Normal" else "#dc3545"
+
+    if prediction == "Normal":
+        prediction = "Pas de Pneumonie détecter"
+        conf = 1 - conf
+    else:
+        prediction = "Pneumonie détecter"
+        conf = conf
     
     # Affichage en colonne
     col1, col2 = st.columns([1, 1])
@@ -73,3 +80,4 @@ if uploaded_file is not None:
     
     with col2:
         st.markdown(f"<div style='display: flex; justify-content: center; align-items: center; height: 100%;'><h3 style='text-align: center; color: {color};'>{prediction}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='display: flex; justify-content: center; align-items: center; height: 100%;'><h3 style='text-align: center; color: {color};'> pourcentage de sureté: {conf:.2f}</h3></div>", unsafe_allow_html=True)
